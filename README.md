@@ -1,4 +1,4 @@
-# Raster_Sampling_Demo
+# Raster Sampling Demo
 <p align="center">
   <img alt="" style=" margin-left: 50px;margin-right: 50px;" src="https://user-images.githubusercontent.com/74040471/140021517-2f4229b0-cc56-4cea-ac93-9c77c2086e74.png"/>
 </p>
