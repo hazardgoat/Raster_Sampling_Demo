@@ -60,7 +60,7 @@ Data files used and created by the demo script will be located in the *Data* fol
 
 # Create Project Files
 ### Download Rasters
-After creating the project folders, we need to download the rasters that will be used in this demo. This tutorial uses raster models of soil depth and available water holding capacity acquired from the [UC Davis SoilWeb website](https://casoilresource.lawr.ucdavis.edu/soil-properties/).
+After creating the project folders, we need to download the rasters that will be used in this demo. This tutorial uses raster models of soil depth and available water holding capacity acquired from the [UC Davis SoilWeb website](https://casoilresource.lawr.ucdavis.edu/soil-properties/download.php).
 
 While these files aren’t very large, it is good practice to download them in chunks so that larger files can be downloaded if needed in the future; this is done in the demo script function below:
 
