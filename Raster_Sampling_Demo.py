@@ -4,7 +4,7 @@ PyGMT v0.4.1
 This script domonstrates how to extract values from rasters using specific coordinates and then apply the values to explore the relationship between soil depth and avalible water holding capacity.
 
 The script automatically downloads rasters of soil depth and avalible water holding capacity for the contiguous continential United States from the University of California, Davis SoilWeb website.
-It then reprojects the rasters to the WGS84 geographic coordinate system so that gps coordinates can be used to pull data from it. Next, random coordinates are generated within the extent of the state of Colorado,
+It then reprojects the rasters to the WGS84 / Pseudo-Mercator geographic coordinate system so that gps coordinates can be used to pull data from it. Next, random coordinates are generated within the extent of the state of Colorado,
 and they are used to extract values from the two rasters. Finally, the values are regressed against each other and plotted on a graph.
 '''
 
@@ -74,7 +74,7 @@ class Grid_Track():
         df_random_coordinates.to_csv(random_us_land_coordinates, sep='\t', index=False)
 
 
-    # reprojects the rasters so they are in the WGS84 geographic coordinate system, which will allow GPS coordinates to be used to extract values from them (https://gis.stackexchange.com/questions/346745/how-to-reproject-raster-image-from-wgs84-pseudo-mercator-to-ecef-to-enu-in-pytho)
+    # reprojects the rasters so they are in the WGS84 / Pseudo-Mercator geographic coordinate system, which will allow GPS coordinates to be used to extract values from them (https://gis.stackexchange.com/questions/346745/how-to-reproject-raster-image-from-wgs84-pseudo-mercator-to-ecef-to-enu-in-pytho)
     def Reproject_Rasters(self):
         import rioxarray
         import os
@@ -89,12 +89,12 @@ class Grid_Track():
             rds = rioxarray.open_rasterio(model_input)
 
             # sets the coordinate system that the raster will be reprojected to
-            crs = 'EPSG:4326'
+            crs = 'EPSG:3857'
 
             # reprojects the raster to the desired coordinate system
             projected = rds.rio.reproject(crs)
 
-            model_output = os.path.join(main_dir, 'Data', '{}_epsg4326_reprojected.tif').format(model)
+            model_output = os.path.join(main_dir, 'Data', '{}_epsg3857_reprojected.tif').format(model)
 
             # saves the reprojected raster as a raster
             projected.rio.to_raster(model_output)
@@ -106,8 +106,8 @@ class Grid_Track():
         import pandas as pd
         import os
 
-        soil_depth_data = os.path.join(main_dir, 'Data', 'soil_depth_epsg4326_reprojected.tif')
-        water_capacity_data = os.path.join(main_dir, 'Data', 'water_capacity_epsg4326_reprojected.tif')
+        soil_depth_data = os.path.join(main_dir, 'Data', 'soil_depth_epsg3857_reprojected.tif')
+        water_capacity_data = os.path.join(main_dir, 'Data', 'water_capacity_epsg3857_reprojected.tif')
         rasters = {'soil_depth':soil_depth_data, 'water_capacity':water_capacity_data}
         
         coordinates = os.path.join(main_dir, 'Data', 'random_us_land_coordinates.csv')
