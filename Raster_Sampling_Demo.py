@@ -4,7 +4,7 @@ PyGMT v0.4.1
 This script domonstrates how to extract values from rasters using specific coordinates and then apply the values to explore the relationship between soil depth and avalible water holding capacity.
 
 The script automatically downloads rasters of soil depth and avalible water holding capacity for the contiguous continential United States from the University of California, Davis SoilWeb website.
-It then reprojects the rasters to the WGS84 / Pseudo-Mercator geographic coordinate system so that gps coordinates can be used to pull data from it. Next, random coordinates are generated within the extent of the state of Colorado,
+It then reprojects the rasters to the WGS84 geographic coordinate system so that gps coordinates can be used to pull data from it. Next, random coordinates are generated within the extent of the state of Colorado,
 and they are used to extract values from the two rasters. Finally, the values are regressed against each other and plotted on a graph.
 '''
 
