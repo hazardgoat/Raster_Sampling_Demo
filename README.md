@@ -124,7 +124,7 @@ This demo script function generates random coordinates within the state of Color
 ```
 
 ### Reproject Rasters
-In order to demonstrate how to reproject a [coordinate reference system (CRS)](https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/coordinate_reference_systems.html) from one type to another, and because the bounds for the random coordinates were originally derived from a [WGS84/Pseudo-Mercator](https://www.lavykim.com/wp1/archives/340) web map, we will reproject the rasters from their native CRS to WGS84 so our random coordinates can be used to sample the data. Permanently transforming a raster isn’t ideal because doing so can introduce inaccuracies, but in this particular case that concern isn’t overly important as this a demo of how it could be done if needed.
+In order to demonstrate how to reproject a [coordinate reference system (CRS)](https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/coordinate_reference_systems.html) from one type to another, and because the bounds for the random coordinates were originally derived from a [WGS84](https://www.lavykim.com/wp1/archives/340) web map, we will reproject the rasters from their native CRS to WGS84 so our random coordinates can be used to sample the data. Permanently transforming a raster isn’t ideal because doing so can introduce inaccuracies, but in this particular case that concern isn’t overly important as this a demo of how it could be done if needed.
 
 This demo script function reprojects the rasters to the WGS84 coordinate system and saves them as new GeoTIFF files:
 
