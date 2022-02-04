@@ -361,12 +361,12 @@ class Grid_Track():
             rds = rioxarray.open_rasterio(model_input)
 
             # sets the coordinate system that the raster will be reprojected to
-            crs = 'EPSG:3857'
+            crs = 'EPSG:4326'
 
             # reprojects the raster to the desired coordinate system
             projected = rds.rio.reproject(crs)
 
-            model_output = os.path.join(main_dir, 'Data', '{}_epsg3857_reprojected.tif').format(model)
+            model_output = os.path.join(main_dir, 'Data', '{}_epsg{}_reprojected.tif').format(model, crs)
 
             # saves the reprojected raster as a raster
             projected.rio.to_raster(model_output)
@@ -378,8 +378,8 @@ class Grid_Track():
         import pandas as pd
         import os
 
-        soil_depth_data = os.path.join(main_dir, 'Data', 'soil_depth_epsg3857_reprojected.tif')
-        water_capacity_data = os.path.join(main_dir, 'Data', 'water_capacity_epsg3857_reprojected.tif')
+        soil_depth_data = os.path.join(main_dir, 'Data', 'soil_depth_epsg4326_reprojected.tif')
+        water_capacity_data = os.path.join(main_dir, 'Data', 'water_capacity_epsg4326_reprojected.tif')
         rasters = {'soil_depth':soil_depth_data, 'water_capacity':water_capacity_data}
         
         coordinates = os.path.join(main_dir, 'Data', 'random_us_land_coordinates.csv')
